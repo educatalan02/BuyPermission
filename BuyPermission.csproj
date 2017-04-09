@@ -77,8 +77,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuyPermissionConfig.cs" />
+    <Compile Include="BuyPermissionConfiguration.cs" />
     <Compile Include="BuyPermission.cs" />
+    <Compile Include="Commands\BuyPermission.BuyPermission.cs" />
+    <Compile Include="Commands\BuyPermission.CostPermission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

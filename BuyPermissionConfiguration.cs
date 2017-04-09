@@ -5,10 +5,11 @@ using System;
 
 namespace coolpuppy24.buypermission
 {
-    public sealed class Command
+
+    public sealed class Config
     {
         public string PermsGroupID;
-        public string Cost;
+        public string UconomyCost;
     }
 
     public class BuyPermissionConfiguration : IRocketPluginConfiguration
@@ -16,14 +17,14 @@ namespace coolpuppy24.buypermission
 
         [XmlArrayItem("BuyPerms")]
         [XmlArray(ElementName = "BuyPermission")]
-        public List<Command> BuyPermissionCommand;
+        public List<Config> BuyPermissionCommand;
 
         public void LoadDefaults()
         {
-            BuyPermissionCommand = new List<Command>(){
-                new Command(){PermsGroupID="SniperKit",Cost="100"
+            BuyPermissionCommand = new List<Config>(){
+                new Config(){PermsGroupID="SniperKit",UconomyCost="100"
                 },
-                new Command(){PermsGroupID="VIP",Cost="500000"
+                new Config(){PermsGroupID="VIP",UconomyCost="500000"
                 },
             };
         }
