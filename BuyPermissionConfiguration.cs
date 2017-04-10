@@ -17,11 +17,11 @@ namespace coolpuppy24.buypermission
 
         [XmlArrayItem("BuyPerms")]
         [XmlArray(ElementName = "BuyPermission")]
-        public List<Config> BuyPermissionCommand;
+        public List<Config> Perms;
 
         public void LoadDefaults()
         {
-            BuyPermissionCommand = new List<Config>(){
+            Perms = new List<Config>(){
                 new Config(){PermsGroupID="SniperKit",UconomyCost="100"
                 },
                 new Config(){PermsGroupID="VIP",UconomyCost="500000"

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace coolpuppy24.buypermission
 {
-    public class CostCommand : IRocketCommand
+    public class PermsCommand : IRocketCommand
     {
         public static BuyPermission Instance;
 
@@ -15,7 +15,7 @@ namespace coolpuppy24.buypermission
         {
             get
             {
-                return new List<string>() { "pcost", "costkit" };
+                return new List<string>() { "perms", "buyablekits" };
             }
         }
 
@@ -31,7 +31,7 @@ namespace coolpuppy24.buypermission
         {
             get
             {
-                return "Check to see how much a permission group costs.";
+                return "Checks to see what permission groups are available to buy!";
             }
         }
 
@@ -39,7 +39,7 @@ namespace coolpuppy24.buypermission
         {
             get
             {
-                return "costpermission";
+                return "perms";
             }
         }
 
@@ -47,21 +47,19 @@ namespace coolpuppy24.buypermission
         {
             get
             {
-                return new List<string>() { "buypermission.cost" };
-            }
-        }
-
-        public string Syntax
-        {
-            get
-            {
-                return "<permission group id>";
+                return new List<string>() { "buypermission.perms" };
             }
         }
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
-            UnturnedChat.Say("The Cost of the ", Instance.Configuration.Instance.PermsGroupID, "Group, is", Instance.Configuration.Instance.UconomyCost, ".");
+            UnturnedPlayer player = (UnturnedPlayer)caller;
+
+            List<string> availablePerms = new List<string>();
+
+            foreach (PermGroupID PermsGroupID in BuyPermission.Instance.Configuration.Instance.PermGroupID)
+
+            UnturnedChat.Say(caller, BuyPermission.Instance.Translations.Instance.Translate("command_perms", String.Join(", ", availablePerms.ToArray())));
         }
     }
 }
