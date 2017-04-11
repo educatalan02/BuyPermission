@@ -26,11 +26,7 @@ namespace coolpuppy24.buypermission
         {
             Rocket.Core.Logging.Logger.LogWarning("BuyPermission made by: Coolpuppy24 and xdlewisdx.");
             Rocket.Core.Logging.Logger.LogWarning("Plugin Version: 1.0");
-            Instance = this;
-            if (IsDependencyLoaded("Uconomy"))
-            {
-                Rocket.Core.Logging.Logger.LogWarning("Dependency Uconomy is present.");
-            }
+            Rocket.Core.Logging.Logger.LogWarning("Remember! You need Uconomy for this plugin!");
             Rocket.Core.Logging.Logger.Log("Successfully Loaded!");
             Rocket.Core.Logging.Logger.LogWarning("-------------------------------------------------");
         }
@@ -51,6 +47,7 @@ namespace coolpuppy24.buypermission
                     {"command_buypermission_success","You are now in the group: {0}" },
                     {"command_perms","These following groups are available for purchase: {0}" },
                     {"command_buypermission_no_money","You can't afford the Permission Group {2}. You need atleast {0} {1}." },
+                    {"command_buypermission_cost","This group costs: {3}"},
                 };
             }
         }

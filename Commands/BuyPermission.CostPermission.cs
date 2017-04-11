@@ -15,7 +15,7 @@ namespace coolpuppy24.buypermission
         {
             get
             {
-                return new List<string>() { "pcost", "costkit" };
+                return new List<string>() { "costkit" };
             }
         }
 
@@ -61,7 +61,14 @@ namespace coolpuppy24.buypermission
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
-            UnturnedChat.Say("The Cost of the ", Instance.Configuration.Instance.PermsGroupID, "Group, is", Instance.Configuration.Instance.UconomyCost, ".");
+            UnturnedPlayer player = (UnturnedPlayer)caller;
+
+            List<string> availablePerms = new List<string>();
+
+            foreach (BuyPermissionConfiguration PermsGroupID in BuyPermission.Instance.Configuration.Instance.BuyPermissionEnd)
+            {
+                UnturnedChat.Say(caller, BuyPermission.Instance.Translations.Instance.Translate("command_buypermission_cost", String.Join(", ", availablePerms.ToArray())));
+            }           
         }
     }
 }

@@ -16,7 +16,7 @@ namespace coolpuppy24.buypermission
         {
             get
             {
-                return new List<string>() { "pbuy", "buykit" };
+                return new List<string>() { "buykit" };
             }
         }
 
@@ -63,10 +63,10 @@ namespace coolpuppy24.buypermission
         public void Execute(IRocketPlayer caller, string[] command)
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
-
-            foreach (var x in BuyPermission.Instance.Configuration.Perms)
+            
+            foreach (var x in BuyPermission.Instance.Configuration.Instance.BuyPermissionEnd)
             {
-                if (x.PermsGroupID == command)
+                if (x.PermsGroupID == command[0])
                 {
                     Uconomy.Instance.Database.IncreaseBalance(player.CSteamID.ToString(), (x.UconomyCost * -1));
                     Rocket.Core.R.Permissions.AddPlayerToGroup(x.PermsGroupID, player);
