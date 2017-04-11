@@ -63,6 +63,12 @@ namespace coolpuppy24.buypermission
         public void Execute(IRocketPlayer caller, string[] command)
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
+
+            if (command.Length == 0)
+            {
+                UnturnedChat.Say(player, "Invalid Parimeter");
+                return;
+            }
             
             foreach (var x in BuyPermission.Instance.Configuration.Instance.BuyPermissionEnd)
             {

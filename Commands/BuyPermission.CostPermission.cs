@@ -4,6 +4,7 @@ using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace coolpuppy24.buypermission
 {
@@ -63,11 +64,15 @@ namespace coolpuppy24.buypermission
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
 
-            List<string> availablePerms = new List<string>();
+            if (command.Length == 0)
+            {
+                UnturnedChat.Say(player, "Invalid Parimeter");
+                return;
+            }
 
             foreach (BuyPermissionConfiguration PermsGroupID in BuyPermission.Instance.Configuration.Instance.BuyPermissionEnd)
             {
-                UnturnedChat.Say(caller, BuyPermission.Instance.Translations.Instance.Translate("command_buypermission_cost", String.Join(", ", availablePerms.ToArray())));
+                UnturnedChat.Say(player, BuyPermission.Instance.Translations.Instance.Translate("command_buypermission_cost"));
             }           
         }
     }
